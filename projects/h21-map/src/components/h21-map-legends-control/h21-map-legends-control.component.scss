@@ -1,0 +1,106 @@
+.c-h21-map {
+  .h21-map-legend-control {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    flex-flow: row;
+    padding-bottom: 20px;
+
+    .mat-checkbox {
+      margin-left: 20px;
+    }
+
+    .vertival {
+      flex-flow: column;
+    }
+
+    .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background,
+    .mat-checkbox-checked.mat-accent .mat-checkbox-background {
+      background-color: #13a2d8;
+    }
+
+    .mat-checkbox:not(.mat-checkbox-disabled).mat-accent .mat-checkbox-ripple .mat-ripple-element {
+      background-color: #13a2d8;
+    }
+  }
+
+  .title-legands-control {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 21px;
+    padding: 0 16px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+  }
+
+  .c-h21-map-combobox_button.mat-button:hover {
+    background-color: #ffffff !important;
+    color: #0044d6 !important;
+  }
+
+  .c-h21-map-combobox_button.mat-button[disabled] {
+    background-color: #ffffff !important;
+    color: #0044d6 !important;
+    padding: 0 8px 0 16px !important;
+    vertical-align: middle !important;
+    text-align: left !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+    cursor: not-allowed !important;
+  }
+
+  .c-h21-map-combobox_button.mat-button:hover {
+    background-color: #ffffff !important;
+    color: #0044d6 !important;
+  }
+
+  .c-h21-map-combobox_menu .mat-menu-item {
+    font-family: Roboto !important;
+    font-size: 16px !important;
+    font-weight: 400 !important;
+  }
+
+  .c-h21-map-combobox_menu .mat-active {
+    background-color: #0044d6;
+    color: white;
+  }
+
+  .mat-menu-item.mat-active:hover {
+    background-color: #0044d6 !important;
+    color: white !important;
+  }
+
+  .mat-menu-item {
+    text-transform: capitalize;
+  }
+
+  .c-h21-map-content-legend {
+    position: absolute;
+    z-index: 2;
+    height: auto;
+    top: 5%;
+    right: 190px;
+    font-weight: 600 !important;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.14);
+  }
+
+  .c-h21-map-combobox_menu.checkbox .mat-checkbox-checked.mat-accent .mat-checkbox-background,
+  .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+    background-color: #0044d6;
+  }
+
+  .c-h21-map-combobox_menu.checkbox {
+    min-width: 210px !important;
+  }
+
+  .c-h21-map-combobox_menu {
+    min-width: 140px !important;
+  }
+
+  .c-h21-map-combobox_button.mat-button .c-h21-combobox_button-arrow.mat-icon {
+    color: #4f5a7c;
+    flex: none;
+  }
+}

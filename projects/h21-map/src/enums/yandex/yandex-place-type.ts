@@ -1,0 +1,16 @@
+export enum YandexPlaceType {
+  airport = 'airport',
+  house = 'distrcict',
+  street = 'distrcict',
+  metro = 'transitStation',
+  district = 'distrcict',
+  locality = 'city',
+  area = 'distrcict',
+  province = 'distrcict',
+  hydro = 'attractions',
+  railway = 'trainStation',
+  route = 'distrcict',
+  country = 'city',
+  vegetation = 'organization',
+  other = 'organization',
+}

@@ -1,0 +1,101 @@
+<h21-map #map [latitude]="mapOptions.latitude" [longitude]="mapOptions.longitude" [isMain]="true"
+    [language]="mapOptions.language" [zoom]="mapOptions.zoom" [defaultCursor]="mapOptions.defaultCursor"
+    (mapReady)="mapReady($event)" (mapClick)="mapClick($event)" [provider]="mapOptions.provider"
+    (zoomChange)=zoomChangeMap($event) (mapRightClick)="mapRightClick($event)" (mapMouseOver)=mapMouseDrag($event)
+    (updateReady)="updateMapReady($event)">
+    <h21-map-preloader [isShowPreloader]="true"></h21-map-preloader>
+    <h21-map-slide-panel #sidebar>
+        <h21-map-provider-control></h21-map-provider-control>
+        <h21-map-language-control></h21-map-language-control>
+    </h21-map-slide-panel>
+
+
+    <div class="c-h21-map-toolbar-horizontal">
+        <h21-map-drawing-manager #drawing [isDraw]="drawingOptions.enableDraw" [isResetButtons]="tabPanel === 'map'"
+            [markerLongitude]="drawingOptions.markerLongitude" [markerLatitude]="drawingOptions.markerLatitude"
+            [isRedraw]="drawingOptions.isRedrawEvent" [circleRadius]="drawingOptions.circleRadius"
+            [circleFitBounds]="drawingOptions.circleFitBounds" (circleRadiusComplete)="circleRadiusComplete($event)"
+            (circleRadiusMax)="circleRadiusMax()" (circleCenterComplete)="circleCenterComplete($event)"
+            (circleRadiusChange)="circleRadiusChangeDrawing($event)" (markerCreate)="markerCreate($event)"
+            (markerRemove)="markerRemove()" [drawingMode]="drawingOptions.drawMode"
+            (changedDrawingMode)="changedDrawingMode($event)" (circleCreate)="circleCreate($event)"
+            (circleCenterChange)="circleCenterChange($event)" (areaCreate)="areaCreate($event)"
+            [areaCoordinates]="drawingOptions.areaCoordinates" [areaFitBounds]="drawingOptions.areaFitBounds"
+            (areaRemove)="areaRemove()" (circleRemove)="circleRemove()" (markerClick)="markerDrawClick($event)"
+            (markerMouseOver)="markerDrawMouseOver($event)">
+        </h21-map-drawing-manager>
+        <div class="flex-fill"></div>
+        <h21-map-autocomplete (changeSelectedAutocomplete)="onAutocompleteSelected($event)"></h21-map-autocomplete>
+        <h21-map-settings-control class="c-h21-map__left-offset" [isShowSettingsControl]="true">
+        </h21-map-settings-control>
+    </div>
+
+    <div class="c-h21-map-toolbar-vertical">
+        <div class="flex-fill"></div>
+        <h21-map-zoom-control></h21-map-zoom-control>
+        <div class="flex-fill"></div>
+        <h21-map-fullscreen-control (changeFitBounds)="onchangedFitBounds($event)"></h21-map-fullscreen-control>
+    </div>
+
+
+    <div class="c-h21-map-toolbar-horizontal c-h21-map-toolbar-horizontal__bottom">
+        <h21-map-poi-toggle-control></h21-map-poi-toggle-control>
+        <div class="flex-fill"></div>
+    </div>
+
+
+    <span h21MapGeocoding></span>
+    <span h21MapCluster [gridSize]="clusterOptions.gridSize" [minimumClusterSize]="clusterOptions.minimumClusterSize"
+        [maxZoom]="clusterOptions.maxZoom">
+    </span>
+    <span h21MapMarker *ngFor="let m of markers; let i = index ;trackBy: trackByFn" (markerMouseOut)="markerMouseOut(m)"
+        (markerMouseOver)="markerMouseOver(m,$event)" (markerClick)="markerClick(m,$event)"
+        [isLabelActive]='m.isLabelActive' [labelClass]='m.labelClass' [labelContent]='m.labelContent'
+        [animate]="m.animate" [latitude]="m.latitude" [longitude]="m.longitude" [isCluster]="m.isCluster"
+        [iconUrl]="m.iconUrl" [iconZIndex]="m.iconZIndex">
+    </span>
+
+
+
+
+    <span h21MapDataLayer [geoJson]="geoJsonObject" (markerMouseOver)="markerMouseOver('',$event)"
+        (clusterClick)="clusterClick($event)" (markerMouseOut)="markerMouseOut(null,$event)"></span>
+
+    <span h21MapSearch></span>
+
+
+    <span h21MapRoute *ngFor="let n of routes; let ii = index;trackBy: trackByFn" [startLatitude]="n.startLatitude"
+        [routeMode]="n.routeMode" [endLatitude]="n.endLatitude" [startLongitude]="n.startLongitude"
+        [geodesic]="n.geodesic" [endLongitude]="n.endLongitude" [routeStrokeColor]="n.strokeColor"
+        [routeStrokeWeight]="n.strokeWeight" (routeReady)='routeReady($event)'>
+    </span>
+
+    <span h21MapBoundar *ngFor="let nn of boundares; let iii = index;trackBy: trackByFn" [regionName]="nn.regionName"
+        (createBoundar)='createBoundar($event)'>
+    </span>
+
+    <h21-map-tooltip [clientX]="tooltipOptions.clientX" [clientY]="tooltipOptions.clientY"
+        [isShow]="tooltipOptions.isShow">
+        <span>radius: {{ tooltipOptions.title }} {{ tooltipOptions.value }} </span>
+    </h21-map-tooltip>
+    <h21-map-info-box [clientX]="infoBoxOptions.clientX" [clientY]="infoBoxOptions.clientY"
+        [isShow]="infoBoxOptions.isShow">
+        <div class="h21-hotel-card h21-hotel-card__on-map" *ngIf="!!infoBoxOptions.hotel">
+            <div class="h21-hotel-card_photo-wrapper">
+
+            </div>
+        </div>
+    </h21-map-info-box>
+
+    <div [style.position]="'fixed'" [style.left]="contextMenuPosition.x" [style.top]="contextMenuPosition.y"
+        [matMenuTriggerFor]="contextMenu" [matMenuTriggerData]="{ item: contextMenu.menuData }">
+    </div>
+
+    <mat-menu #contextMenu="matMenu" [overlapTrigger]="true">
+        <ng-template matMenuContent let-item="item">
+            <button mat-menu-item (click)="onRoute(item, point.pickUp)">build a route from here?</button>
+            <button mat-menu-item (click)="onRoute(item, point.dropDown)">build a route to here?</button>
+        </ng-template>
+    </mat-menu>
+
+</h21-map>

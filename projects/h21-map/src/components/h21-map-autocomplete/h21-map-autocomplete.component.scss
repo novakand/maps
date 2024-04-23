@@ -1,0 +1,90 @@
+.c-h21-map {
+  .c-h21-map-toolbar-autocomplete {
+    min-width: 260px;
+
+    .mat-form-field {
+      width: 100%;
+      font-size: 14px;
+      color: var(--textAccent-hex);
+      border: 1px solid rgba(var(--textAccent-rgb), 0.28);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+      border-radius: 2px !important;
+      background: var(--background-hex);
+      box-sizing: border-box;
+      height: 40px;
+
+      &.mat-focused,
+      &:hover {
+        border-color: var(--primary-hex);
+      }
+
+      .mat-form-field-wrapper {
+        padding: 0;
+
+        .mat-form-field-underline,
+        .mat-form-field-subscript-wrapper {
+          display: none;
+        }
+      }
+
+      .mat-form-field-flex {
+        padding: 0 8px;
+        height: 38px;
+        align-items: center;
+      }
+
+      .mat-form-field-infix {
+        padding: 0;
+        border: 0;
+        line-height: 38px;
+      }
+
+      .mat-form-field-label-wrapper {
+        padding: 0;
+        top: 0;
+      }
+
+      .mat-form-field-label {
+        color: rgba(var(--textAccent-rgb), 0.5);
+        top: 0;
+      }
+
+      &.mat-form-field-should-float .mat-form-field-label {
+        display: none;
+      }
+
+      .mat-form-field-suffix > .mat-icon {
+        opacity: 0.5;
+      }
+
+      .mat-form-field-suffix {
+        align-self: center;
+        padding: 0;
+      }
+
+      .mat-form-field-suffix .mat-icon-button {
+        height: 36px;
+        width: 36px;
+        margin: -6px;
+
+        .mat-button-wrapper {
+          display: block;
+          height: 36px;
+        }
+
+        .mat-icon {
+          margin: 6px;
+          width: 24px;
+          height: 24px;
+          font-size: 24px;
+          line-height: 24px;
+        }
+      }
+
+      .mat-input-element {
+        margin: 0;
+        padding: 0;
+      }
+    }
+  }
+}

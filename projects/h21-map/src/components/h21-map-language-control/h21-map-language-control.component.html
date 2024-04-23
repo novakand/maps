@@ -1,0 +1,9 @@
+<div *ngIf="isShowControl">
+    <div class="title-provider-control">Language</div>
+    <span class="c-h21-map-language-control">
+        <ng-select [items]="options" bindLabel="name" bindValue="code" [disabled]="isDisableControl"
+            [clearable]="false" (change)="onLanguageChange($event)" placeholder="placeholder"
+            [(ngModel)]="selectedOption">
+        </ng-select>
+    </span>
+</div>

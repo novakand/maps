@@ -1,0 +1,6 @@
+{
+  "extends": [
+    "h21-tslint-rules"
+  ],
+  "rules": { }
+}

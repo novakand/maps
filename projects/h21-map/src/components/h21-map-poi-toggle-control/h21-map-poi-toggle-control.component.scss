@@ -1,0 +1,46 @@
+.c-h21-map {
+  .c-map-poi-toggle-control {
+    background-color: var(--background-hex);
+    height: 40px;
+    line-height: 40px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    box-sizing: border-box;
+    border: 1px solid rgba(var(--textAccent-rgb), 0.28);
+    border-radius: 2px;
+    overflow: hidden;
+
+    &:hover:not(.c-map-poi-toggle-control__disabled) {
+      border-color: var(--primary-hex);
+    }
+  }
+
+  .c-map-legends-controls_button.mat-button {
+    height: 100%;
+    line-height: 38px;
+    padding: 0 16px 0 8px;
+    font-size: 14px;
+    color: rgba(var(--foregraund-rgb), 0.46);
+    display: block;
+    transition: border-color 120ms ease-in-out;
+    border-radius: 2px;
+
+    &[disabled] {
+      opacity: 0.5;
+    }
+
+    &:hover {
+      .mat-button-focus-overlay {
+        display: none;
+      }
+    }
+
+    .mat-ripple-element {
+      opacity: 0.14;
+      background-color: var(--foregraund-hex);
+    }
+
+    img, .mat-icon {
+      margin-right: 4px;
+    }
+  }
+}

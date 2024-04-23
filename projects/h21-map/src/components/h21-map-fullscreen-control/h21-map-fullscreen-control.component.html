@@ -1,0 +1,32 @@
+<div class="c-h21-map-toolbar-fullscreen-control">
+  <mat-button-toggle-group class="c-h21-map-button-toggle-group"
+                           *ngIf="isShowFullscreenControl"
+                           [disabled]="isDisabledFullscreenControl"
+                           [vertical]="true"
+                           [(ngModel)]="isResetFullscreenControl">
+    <mat-button-toggle [matTooltip]="tooltipFitBounds"
+                       matTooltipPosition="left"
+                       *ngIf="isShowFitBounds"
+                       [disabled]="isDisabledFitbounds"
+                       value="fitbounds"
+                       (change)="onChangeFitbounds()">
+      <mat-icon>gps_fixed</mat-icon>
+    </mat-button-toggle>
+    <mat-button-toggle [matTooltip]="tooltipFullscreen"
+                       matTooltipPosition="left"
+                       *ngIf="isShowFullscreen"
+                       [disabled]="isDisabledFullscreen"
+                       value="fullscreen"
+                       (change)="onChangeFullscreen(true)">
+      <mat-icon>fullscreen</mat-icon>
+    </mat-button-toggle>
+    <mat-button-toggle [matTooltip]="tooltipFullscreenExit"
+                       matTooltipPosition="left"
+                       *ngIf="isShowFullscreenExit"
+                       [disabled]="isDisabledFullscreenExit"
+                       value="fullscreenexit"
+                       (change)="onChangeFullscreen(false)">
+      <mat-icon>fullscreen_exit</mat-icon>
+    </mat-button-toggle>
+  </mat-button-toggle-group>
+</div>

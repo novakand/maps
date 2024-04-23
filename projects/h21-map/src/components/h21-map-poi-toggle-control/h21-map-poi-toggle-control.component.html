@@ -1,0 +1,13 @@
+<div class="c-map-poi-toggle-control" [class.c-map-poi-toggle-control__disabled]="disabled">
+  <button type="button"
+          mat-button
+          class="c-map-legends-controls_button"
+          [disabled]="disabled"
+          (click)="toggle()"
+          [matTooltip]="tooltip"
+          matTooltipPosition="after">
+      <img *ngIf="!checked" src="data:image/svg+xml;utf8,<svg width='24px' height='24px' viewBox='0 0 24 24' version='1.1' xmlns='http://www.w3.org/2000/svg'><g fill='none' fill-rule='evenodd'><polygon fill='%23FF0000' points='9 14 11 21 13 14'></polygon><circle fill='%23FF5757' cx='11' cy='9' r='6'></circle><path d='M11.9621615,6.76381326 L11.5923739,6.02835438 L8.63404499,6.02835438 L8.63404499,12.2797403 L9.37362962,12.2797403 L9.37362962,9.70563907 L11.2225768,9.70563907 L11.5923739,10.441098 L14.1809058,10.441098 L14.1809058,6.76381326 L11.9621615,6.76381326 Z M13.4413212,9.70564876 L11.9621615,9.70564876 L11.5923644,8.97018989 L9.37362005,8.97018989 L9.37362005,6.76381326 L11.2225768,6.76381326 L11.5923644,7.49927213 L13.4413212,7.49927213 L13.4413212,9.70564876 Z' fill='%23FFFFFF'></path></g></svg>" alt="" />
+      <mat-icon *ngIf="checked" color="warn">close</mat-icon>
+      <span class="">POI</span>
+  </button>
+</div>

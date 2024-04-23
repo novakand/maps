@@ -1,0 +1,14 @@
+<div *ngIf="isShowControl">
+
+    <div class="title-provider-control">Maps</div>
+    <mat-radio-group [disabled]="isDisabledControl">
+        <span *ngFor="let type of providerType.list; let i = index; trackBy: trackByFn">
+            <span class="h21-map-provider-control vertical">
+                <mat-radio-button (change)="onChangeChecked(type,i) " [checked]="type.isChecked"
+                    *ngIf="type.isShow" value="'type.name'">
+                    {{ type.name| lowercase }} {{ 'map' }}
+                </mat-radio-button>
+            </span>
+        </span>
+    </mat-radio-group>
+</div>

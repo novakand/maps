@@ -1,0 +1,22 @@
+<div class="c-h21-map-toolbar-zoom-control">
+  <mat-button-toggle-group class="c-h21-map-button-toggle-group"
+                           *ngIf="isShowZoomControl"
+                           [disabled]="isDisableZoomControl"
+                           [vertical]="true"
+                           [(ngModel)]="isResetZoomControl">
+    <mat-button-toggle [matTooltip]="tooltipZoomIn"
+                       matTooltipPosition="left"
+                       [disabled]="isDisabledZoomIn"
+                       value="zoomIn"
+                       (change)="onZoomInChange()">
+      <mat-icon>add</mat-icon>
+    </mat-button-toggle>
+    <mat-button-toggle [matTooltip]="tooltipZoomOut"
+                       matTooltipPosition="left"
+                       [disabled]="isDisabledZoomOut"
+                       value="zoomOut"
+                       (change)="onZoomOutChange()">
+      <mat-icon>remove</mat-icon>
+    </mat-button-toggle>
+  </mat-button-toggle-group>
+</div>

@@ -1,0 +1,15 @@
+<div class="c-h21-map-toolbar-settings-control">
+  <mat-button-toggle-group class="c-h21-map-button-toggle-group"
+                           *ngIf="isShowSettingsControl"
+                           [disabled]="isDisableSettingsControl"
+                           [vertical]="true"
+                           [(ngModel)]="isResetSettingsControl">
+    <mat-button-toggle [matTooltip]="tooltipSettings"
+                       id="map-settings-toggle-button"
+                       matTooltipPosition="left"
+                       value="settings"
+                       (change)="onChangeSettings()">
+      <mat-icon id="map-settings-toggle-icon">more_vert</mat-icon>
+    </mat-button-toggle>
+  </mat-button-toggle-group>
+</div>

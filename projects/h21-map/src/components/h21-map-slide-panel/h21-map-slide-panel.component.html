@@ -1,0 +1,9 @@
+<div class="h21-map-slide-panel" [@slide]="sidePanel">
+    <div class="h21-map-slide-panel-content">
+        <a (click)="close()">
+            <mat-icon class="close c-h21-map-icon">close</mat-icon>
+        </a>
+        <span class="title-panel">Map settings</span>
+    </div>
+    <ng-content></ng-content>
+</div>

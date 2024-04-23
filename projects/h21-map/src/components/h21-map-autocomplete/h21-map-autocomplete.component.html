@@ -1,0 +1,23 @@
+<div class="c-h21-map-toolbar-autocomplete" *ngIf="isShowAutocompleteControl">
+  <mat-form-field>
+    <input type="text"
+           placeholder="Search on map"
+           autocomplete="off"
+           matInput
+           [disabled]="isDisabledInput"
+           [(ngModel)]="valueInput"
+           (input)="onAutocompleteChange($event.target.value)"
+           [matAutocomplete]="auto"/>
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option class="c-h21-map-mat-option" *ngFor="let point of points; trackBy: trackByFn"
+                  [value]="point.title" [attr.title]="point.title" (onSelectionChange)="onSelectedChange(point,$event)">
+        <mat-icon matSuffix>{{ getIcon(point.subtype) }}</mat-icon>
+        {{ point.title }}
+      </mat-option>
+    </mat-autocomplete>
+    <mat-icon *ngIf="isShowLocation" matSuffix>location_on</mat-icon>
+    <button type="button" mat-icon-button matSuffix *ngIf="isShowReset" (click)="inputClear()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+</div>

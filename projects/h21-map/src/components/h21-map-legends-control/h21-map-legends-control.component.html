@@ -1,0 +1,7 @@
+<div *ngIf="isShowLegendControl">
+    <div class="title-legands-control">Legends</div>
+    <span class="h21-map-legend-control vertical" *ngFor="let type of keys(typePoint); trackBy: trackByFn">
+        <mat-checkbox (click)="$event.stopPropagation()"
+        (change)="setFilter(type,$event.checked)" [checked]="isCheckedLegend"  class="mat-menu-item">{{ type | lowercase }}</mat-checkbox>
+    </span>
+</div>

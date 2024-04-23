@@ -1,0 +1,18 @@
+<div class="c-h21-map-toolbar-drawing-control">
+  <span *ngIf="isShowDrawingControl">
+    <mat-button-toggle-group class="c-h21-map-button-toggle-group"
+                             [vertical]="false"
+                             [disabled]="isDisableDrawingControl"
+                             [(ngModel)]="isResetDrawingControl"
+                             value="All">
+      <ng-container *ngFor="let button of buttons.list; let i = index">
+        <mat-button-toggle *ngIf="button.isShow"
+                           [matTooltip]="button.title"
+                           matTooltipPosition="right"
+                           (change)="onSetDrawingMode(button,i)">
+          <mat-icon [color]="button.isChecked ? 'warn' : ''">{{ button.icon }}</mat-icon>
+        </mat-button-toggle>
+      </ng-container>
+    </mat-button-toggle-group>
+  </span>
+</div>

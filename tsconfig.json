@@ -1,0 +1,31 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es5",
+    "typeRoots": [
+      "node_modules/@types",
+      "node_modules/@h21-map-types"
+    ],
+    "types": [
+      "node",
+      "leaflet-map",
+      "mapbox-map",
+      "google-map",
+      "baidu-map",
+      "yandex-map",
+      "leaflet-markercluster"
+    ],
+    "lib": [
+      "es2018",
+      "dom"
+    ]
+  }
+}

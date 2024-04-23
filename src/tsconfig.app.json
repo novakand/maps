@@ -1,0 +1,21 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../out-tsc/app",
+    "module": "esnext",
+    "types": [
+      "node",
+      "leaflet-map",
+      "mapbox-map",
+      "google-map",
+      "baidu-map",
+      "yandex-map",
+      "leaflet-markercluster"
+    ],
+  },
+  "exclude": [
+    "index.d.ts",
+    "test.ts",
+    "**/*.spec.ts"
+  ]
+}
